@@ -149,9 +149,8 @@ def doHttpAction(String path, String method = null, content = null) {
   def parts = device.deviceNetworkId.split(":")
   def ip = convertHexToIP(parts[0])
   def port = convertHexToInt(parts[1])
-  def id = '03200100' + (port % 10).toString()
   def params = [
-    path: "/devices/${id}${path}",
+    path: "${path}",
     method: parsedMethod,
     headers: [
       HOST: "${ip}:${port}",
